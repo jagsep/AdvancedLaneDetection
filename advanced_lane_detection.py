@@ -20,7 +20,9 @@ ref_image_curved = cv2.imread('advanced_color.jpg')
 ref_image_curved_color = cv2.cvtColor(ref_image_curved, cv2.COLOR_BGR2RGB)
 
 #total_images = [ref_image_color, ref_image_curved_color]
-
+                                            
+                                                ################################## Camera Calibration ##################################
+        
 def countBox(arg):
 
     point = np.zeros((Y * X, 3), np.float32)
@@ -73,6 +75,8 @@ img_pts, obj_pts = countBox(all_images)
 # ax[1,0].imshow(ref_image_curved_color)
 # ax[1,1].imshow(undistort[1])
 # plt.show()
+
+                                      ################################## Functions involved in pre-processing ##################################
 
 GRADIENT = (20, 100)
 B_CHANNEL = (150, 200)
@@ -213,6 +217,7 @@ def lane_pixels(warp, total_windows, margin, recenter):
 
     left_lane_indices, right_lane_indices = [], []
 
+                               ################################## Apply sliding window to the binary transformation ##################################
 
     for each_window in range(total_windows):
 
@@ -266,6 +271,9 @@ def lane_pixels(warp, total_windows, margin, recenter):
     return leftx, lefty, rightx, righty, output
 
 #a, b, c, d, e= lane_pixels(warp_binary0, TOTAL_WINDOWS, MARGIN, RECENTER_PIX)
+
+                       ################################## Function to write lines using polynomial function ##################################
+
 def draw_poly(leftx, lefty, rightx, righty, inp):
 
     fit_left = np.polyfit(lefty, leftx, 2)
@@ -277,6 +285,8 @@ def draw_poly(leftx, lefty, rightx, righty, inp):
     fit_right_x = fit_right[0] * ploty ** 2 + fit_right[1] * ploty + fit_right[2]
 
     return fit_left_x, fit_right_x, ploty
+
+                       ################################## Function to apply polygon between lanes and write parameters ##################################
 
 def draw_lane(raw_image, warp, left_fit, right_fit, ploty, m_inv, mean_curvature, vehicle_center):
 
@@ -307,6 +317,8 @@ Y_PIXEL_METER = 30/720
 
 def search_poly(inp, raw, margin):
 
+                            ################################## Draw line over detected lane using polynomial function ##################################
+    
     nonzero = inp.nonzero()
     ynonzero_pix = np.array(nonzero[0])
     xnonzero_pix = np.array(nonzero[1])
@@ -342,6 +354,8 @@ def search_poly(inp, raw, margin):
 
 #search_poly(warp_binary1, 50)
 
+                           ################################## Obtain radius of curvature of the lane and vehicle position ##################################
+    
         y_top = np.max(ploty)
 
         right_curvature = np.polyfit(ploty * Y_PIXEL_METER, fit_right_x * X_PIXEL_METER, 2)
