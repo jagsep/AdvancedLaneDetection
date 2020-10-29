@@ -1,2 +1,2 @@
 # AdvancedLaneDetection
-This project was inspired by the author 'Moataz-E'. I thank him for this opportunity and without it, this project would not have been possible.
+This project was inspired by the author 'Moataz-E'. I thank the author for this opportunity and this project would not have been possible otherwise.
