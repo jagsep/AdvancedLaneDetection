@@ -1,7 +1,7 @@
 # AdvancedLaneDetection
-This project was inspired by the author 'Moataz-E'. I thank the author for this opportunity and this project would not have been possible without their github repo. I wanted to learn the concepts used in Computer Vision for application development. 
+This project was inspired by the author 'Moataz-E'. I thank the author for this opportunity and this project would not have been possible without their github repo.
 
-While this script is effective in detecting road lanes, a deeper interpretaion on developing algorithms based on preprocessing, environment factors and sensors remains to be investigated.
+I wanted to learn the concepts used in Computer Vision for application development. While this script is effective in detecting road lanes, a deeper interpretaion on developing algorithms based on preprocessing, environment factors and sensors remains to be investigated.
 
 Brief overview of this project:
 
